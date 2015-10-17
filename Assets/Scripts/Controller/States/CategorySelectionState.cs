@@ -7,7 +7,7 @@ public class CategorySelectionState : BattleState
 	string menuTitle = "Action";
 	List<string> list;
 	
-	public override void Enter ()
+	public override void Enter()
 	{
 		base.Enter ();
 		SnapToCurrent();
@@ -16,31 +16,38 @@ public class CategorySelectionState : BattleState
 		abilityMenuPanel.Toggle(true);
 	}
 	
-	public override void Exit ()
+	public override void Exit()
 	{
 		base.Exit ();
 		owner.abilityMenuPanel.Toggle(false);
 	}
 
-	protected override void AddListeners ()
+	protected override void AddListeners()
 	{
-		base.AddListeners ();
+		base.AddListeners();
 		abilityMenuPanel.selectEvent += OnMenuSelection;
 		abilityMenuPanel.cancelEvent += OnMenuCancel;
 	}
 
-	protected override void RemoveListeners ()
+	protected override void RemoveListeners()
 	{
-		base.RemoveListeners ();
+		base.RemoveListeners();
 		owner.abilityMenuPanel.selectEvent -= OnMenuSelection;
 		owner.abilityMenuPanel.cancelEvent -= OnMenuCancel;
 	}
 	
-	void OnMenuSelection (object sender, InfoEventArgs<int> e)
+	void OnMenuSelection(object sender, InfoEventArgs<int> e)
 	{
 		if (e.info == 0)
 		{
-			Debug.Log("Attack is not implemented");
+			//Debug.Log("Attack is not implemented");
+            ability = ScriptableObject.CreateInstance<Ability>();
+            ability.range = 1;
+            ability.rangeType = Ability.Ranges.Constant;
+            ability.powerType = Ability.Powers.Weapon;
+            ability.mpCost = 0;
+            ability.name = "_Attack";
+            owner.ChangeState<AbilityTargetState>();
 		}
 		else
 		{
@@ -49,12 +56,12 @@ public class CategorySelectionState : BattleState
 		}
 	}
 	
-	void OnMenuCancel (object sender, System.EventArgs e)
+	void OnMenuCancel(object sender, System.EventArgs e)
 	{
 		owner.ChangeState<CommandSelectionState>();
 	}
 	
-	void LoadCategories ()
+	void LoadCategories()
 	{
 		list = new List<string>();
 		list.Add("Attack");

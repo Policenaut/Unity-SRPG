@@ -37,12 +37,12 @@ public class BattleController : StateMachine
 	#endregion
 
 	#region MonoBehaviour
-	void Awake ()
+	void Awake()
 	{
 		instance = this;
 	}
 
-	void Start ()
+	void Start()
 	{
 		board = GetComponentInChildren<Board>();
 		turnController = GetComponent<RoundController>();
@@ -65,27 +65,27 @@ public class BattleController : StateMachine
 	public void MoveCursor (Point offset)
 	{
 		Tile target = board.GetTile(cursor + offset);
-		if (target != null)
-			SetCursor(target);
+        if (target != null)
+        { SetCursor(target); }
 	}
 
-	public void SetCursor (Tile target)
+	public void SetCursor(Tile target)
 	{
 		cursor = target.pos;
 		tileSelectionIndicator.localPosition = target.center;
 	}
 
-	public void ShowAttackerStats (Unit unit)
+	public void ShowAttackerStats(Unit unit)
 	{
 		attackerPanel.ShowStats(unit, heroes.Contains(unit));
 	}
 
-	public void ShowDefenderStats (Unit unit)
+	public void ShowDefenderStats(Unit unit)
 	{
 		defenderPanel.ShowStats(unit, heroes.Contains(unit));
 	}
 
-	public void MarkPlacement ()
+	public void MarkPlacement()
 	{
 		HasUnitMoved = false;
 		HasUnitActed = false;
@@ -94,7 +94,7 @@ public class BattleController : StateMachine
 		_startDir = current.Dir;
 	}
 
-	public void UndoMove ()
+	public void UndoMove()
 	{
 		HasUnitMoved = false;
 		current.Place(_startTile);
@@ -104,14 +104,14 @@ public class BattleController : StateMachine
 	#endregion
 
 	#region Private
-	void Populate ()
+	void Populate()
 	{
 		List<Tile> openTiles = new List<Tile>(board.tiles.Values);
 		Populate(Alliances.Hero, heroes, openTiles);
 		Populate(Alliances.Monster, enemies, openTiles);
 	}
 
-	void Populate (Alliances alliance, List<Unit> team, List<Tile> openTiles)
+	void Populate(Alliances alliance, List<Unit> team, List<Tile> openTiles)
 	{
 		for (int i = 0; i < 6; ++i)
 		{
