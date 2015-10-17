@@ -1,0 +1,8 @@
+Fencer
+Elementalist
+Red Mage
+White Mage
+Summoner
+Archer
+Assassin
+Sniper
