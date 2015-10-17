@@ -24,6 +24,8 @@ public static class StatsExtensions
 			return unit.MRes;
 		case Stats.Spd:
 			return unit.Spd;
+		case Stats.AP:
+			return unit.AP;
 		case Stats.Mov:
 			return unit.Mov;
 		case Stats.Jmp:

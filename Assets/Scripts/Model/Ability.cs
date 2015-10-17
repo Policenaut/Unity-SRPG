@@ -53,6 +53,7 @@ public class Ability : ScriptableObject
 	public Powers powerType;
 	public int power;
 	public int mpCost;
+    public int apCost;
 	public Charges charge;
 	public Elements element;
 	public Ranges rangeType;

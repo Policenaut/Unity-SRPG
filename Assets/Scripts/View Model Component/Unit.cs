@@ -40,6 +40,18 @@ public class Unit : MonoBehaviour
 		set { SetStat(Stats.MMP, value); }
 	}
 
+	public int AP
+	{
+		get { return GetStat(Stats.AP); }
+		set { SetStat(Stats.AP, value); }
+	}
+
+	public int MaxAP
+	{
+		get { return GetStat(Stats.MAP); }
+		set { SetStat(Stats.MAP, value); }
+	}
+
 	public int WAtk
 	{ 
 		get { return GetStat(Stats.WAtk); }
@@ -92,7 +104,8 @@ public class Unit : MonoBehaviour
 	{
 		get { return GetStat(Stats.SRes); }
 		set { SetStat(Stats.SRes, value); }
-	}
+	} 
+
 
 	public Alliances alliance;
 	public Directions Dir;
@@ -153,6 +166,7 @@ public class Unit : MonoBehaviour
 		Lvl = 1;
 		HP = MaxHP;
 		MP = MaxMP;
+		AP = MaxAP;
 	}
 
 	public void LevelUp ()

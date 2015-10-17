@@ -13,6 +13,8 @@ public enum Stats
 	MPow,	// Magic Power
 	MRes,	// Magic Resistance
 	Spd,	// Speed
+    AP,     // Action Points
+	MAP,	// Max Action Points
 	Mov,	// Move Range
 	Jmp,	// Jump
 	Evd,	// Evade

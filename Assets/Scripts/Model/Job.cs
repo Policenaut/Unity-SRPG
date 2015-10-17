@@ -11,12 +11,13 @@ public class Job : ScriptableObject
 		Stats.WDef,
 		Stats.MPow,
 		Stats.MRes,
-		Stats.Spd
+		Stats.Spd,
+		Stats.MAP
 	};
 
-	public int[] baseStats = new int[7];
-	public int[] baseGrowth = new int[7];
-	public float[] bonusGrowth = new float[7];
+	public int[] baseStats = new int[statOrder.Length];
+	public int[] baseGrowth = new int[statOrder.Length];
+	public float[] bonusGrowth = new float[statOrder.Length];
 
 	public int GetBaseStat (Stats type)
 	{
@@ -75,6 +76,8 @@ public class Job : ScriptableObject
 			return 5;
 		case Stats.Spd:
 			return 6;
+		case Stats.MAP:
+			return 7;
 		}
 		return -1;
 	}

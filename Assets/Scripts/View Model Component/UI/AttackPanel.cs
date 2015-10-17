@@ -9,6 +9,7 @@ public class AttackPanel : SidePanel
 	[SerializeField] Text nameLabel;
 	[SerializeField] Text hpLabel;
 	[SerializeField] Text mpLabel;
+	[SerializeField] Text apLabel;
 	[SerializeField] Text lvLabel;
 
 	public void ShowStats (Unit unit, bool isAlly)
@@ -21,6 +22,7 @@ public class AttackPanel : SidePanel
 			hpLabel.text = string.Format("HP {0}/{1}", unit.HP, unit.MaxHP);
 			mpLabel.text = string.Format("MP {0}/{1}", unit.MP, unit.MaxMP);
 			lvLabel.text = string.Format("LV. {0}", unit.Lvl);
+			apLabel.text = string.Format("AP {0}/{1}", unit.AP, unit.MaxAP);
 		}
 		Toggle(unit != null);
 	}
