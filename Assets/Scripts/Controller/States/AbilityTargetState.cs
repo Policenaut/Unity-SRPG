@@ -33,10 +33,7 @@ public class AbilityTargetState : BattleState
 			GetTargets();
 			break;
 		case 1:
-            if (ability.name == "_Attack")
-            { owner.ChangeState<CategorySelectionState>(); }
-            else
-            { owner.ChangeState<AbilitySelectionState>(); }
+			owner.ChangeState<AbilitySelectionState>();
 			break;
 		}
 	}
