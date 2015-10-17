@@ -27,6 +27,12 @@ public class PerformAbilityState : BattleState
 			targets[i].SetStat(Stats.HP, result);
 		}
 
+		int resultingMP = owner.current.MP - ability.mpCost;
+		owner.current.SetStat(Stats.MP, resultingMP);
+
+		int resultingAP = owner.current.AP - ability.apCost;
+		owner.current.SetStat(Stats.AP, resultingAP);
+
 		if (HasUnitMoved)
 			owner.ChangeState<EndFacingState>();
 		else

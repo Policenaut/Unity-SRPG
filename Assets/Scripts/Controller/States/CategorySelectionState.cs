@@ -38,22 +38,8 @@ public class CategorySelectionState : BattleState
 	
 	void OnMenuSelection(object sender, InfoEventArgs<int> e)
 	{
-		if (e.info == 0)
-		{
-			//Debug.Log("Attack is not implemented");
-            ability = ScriptableObject.CreateInstance<Ability>();
-            ability.range = 1;
-            ability.rangeType = Ability.Ranges.Constant;
-            ability.powerType = Ability.Powers.Weapon;
-            ability.mpCost = 0;
-            ability.name = "_Attack";
-            owner.ChangeState<AbilityTargetState>();
-		}
-		else
-		{
-			owner.skillSet = owner.current.capability[e.info - 1];
+			owner.skillSet = owner.current.capability[e.info];
 			owner.ChangeState<AbilitySelectionState>();
-		}
 	}
 	
 	void OnMenuCancel(object sender, System.EventArgs e)
@@ -64,7 +50,6 @@ public class CategorySelectionState : BattleState
 	void LoadCategories()
 	{
 		list = new List<string>();
-		list.Add("Attack");
 		for (int i = 0; i < current.capability.Count; ++i)
 			list.Add(current.capability[i].name);
 	}

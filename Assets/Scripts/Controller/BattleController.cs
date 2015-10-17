@@ -128,10 +128,17 @@ public class BattleController : StateMachine
 			unit.Dir = (Directions)UnityEngine.Random.Range(0, 4);
 			unit.Match();
 
+			SkillSet atk = new SkillSet();
+			atk.name = "Attack";
+			atk.skills.Add(Resources.Load<Ability>("Abilities/_lightAttack"));
+		//	atk.skills.Add(Resources.Load<Ability>("Abilities/_mediumAttack"));
+		//	atk.skills.Add(Resources.Load<Ability>("Abilities/_heavyAttack"));
+			unit.capability.Add(atk);
+
 			SkillSet temp = new SkillSet();
 			temp.name = "Black Magic";
-			temp.skills.Add( Resources.Load<Ability>("Abilities/Fire") );
-			unit.capability.Add( temp );
+			temp.skills.Add(Resources.Load<Ability>("Abilities/Fire"));
+			unit.capability.Add(temp);
 
 			turnController.AddUnit(unit);
 		}
