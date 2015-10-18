@@ -51,18 +51,12 @@ public class PerformAbilityState : BattleState
 		int resultingAP = owner.current.AP - ability.apCost;
 		owner.current.SetStat(Stats.AP, resultingAP);
 
-		if (HasUnitMoved)
-		{
-			owner.ChangeState<EndFacingState>();
-		}
+		if (HasUnitMoved && owner.current.HP > 0)
+		{ owner.ChangeState<EndFacingState>(); }
 		else if (owner.current.HP > 0)
-		{
-			owner.ChangeState<CommandSelectionState>();
-		}
+		{ owner.ChangeState<CommandSelectionState>(); }
 		else
-		{
-			owner.CompletedTurn();
-		}
+		{ owner.CompletedTurn(); }
 			
 	}
 }
