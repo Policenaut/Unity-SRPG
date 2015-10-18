@@ -28,11 +28,19 @@ public class PerformAbilityState : BattleState
 			
 			Vector3 dmgTextLocation = targets[i].transform.position;
 			dmgTextLocation.y += 1;
+
 			GameObject dmgText = new GameObject();
+			dmgText.transform.Rotate(0, 45, 0);
+
 			TextMesh mesh = dmgText.AddComponent<TextMesh>();
-			mesh.fontSize = 14;
+			mesh.fontSize = 100;
 			mesh.color = Color.red;
 			mesh.text = damage.ToString();
+
+			ConstantForce force = dmgText.AddComponent<ConstantForce>();
+			force.force = new Vector3(0f, 13f, 0f);
+
+			dmgText.transform.localScale  = new Vector3(0.1f, 0.1f, 1f);
 			dmgText.transform.position = dmgTextLocation;
 			GameObject.Destroy(dmgText, 1f);
 		}
