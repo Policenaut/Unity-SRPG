@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\Model\Victory Conditions\VictoryCondition.cs" />
     <Compile Include="Assets\Scripts\PreProduction\BoardCreator.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Board.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\CameraGUIHandler.cs" />
     <Compile Include="Assets\Scripts\View Model Component\CameraRig.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Death.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Movement Types\FlyMovement.cs" />
