@@ -30,7 +30,6 @@ public class PerformAbilityState : BattleState
 			dmgTextLocation.y += 1;
 
 			GameObject dmgText = new GameObject();
-			dmgText.transform.Rotate(0, 45, 0);
 
 			TextMesh mesh = dmgText.AddComponent<TextMesh>();
 			mesh.fontSize = 100;
@@ -41,6 +40,7 @@ public class PerformAbilityState : BattleState
 			force.force = new Vector3(0f, 13f, 0f);
 
 			dmgText.transform.localScale  = new Vector3(0.1f, 0.1f, 1f);
+			dmgText.transform.rotation = Quaternion.LookRotation(dmgTextLocation - Camera.main.transform.position);
 			dmgText.transform.position = dmgTextLocation;
 			GameObject.Destroy(dmgText, 1f);
 		}
