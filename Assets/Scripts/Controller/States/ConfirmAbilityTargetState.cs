@@ -38,7 +38,7 @@ public class ConfirmAbilityTargetState : BattleState
 			owner.ChangeState<PerformAbilityState>();
 			break;
 		case 1:
-			owner.ChangeState<AbilitySelectionState>();
+			owner.ChangeState<AbilityTargetState>();
 			break;
 		}
 	}

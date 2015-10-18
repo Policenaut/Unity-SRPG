@@ -52,8 +52,17 @@ public class PerformAbilityState : BattleState
 		owner.current.SetStat(Stats.AP, resultingAP);
 
 		if (HasUnitMoved)
+		{
 			owner.ChangeState<EndFacingState>();
-		else
+		}
+		else if (owner.current.HP > 0)
+		{
 			owner.ChangeState<CommandSelectionState>();
+		}
+		else
+		{
+			owner.CompletedTurn();
+		}
+			
 	}
 }
