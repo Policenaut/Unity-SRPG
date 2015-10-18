@@ -25,6 +25,16 @@ public class PerformAbilityState : BattleState
 			int maxHP = targets[i].GetStat(Stats.MHP);
 			int result = Mathf.Clamp(hp - damage, 0, maxHP);
 			targets[i].SetStat(Stats.HP, result);
+			
+			Vector3 dmgTextLocation = targets[i].transform.position;
+			dmgTextLocation.y += 1;
+			GameObject dmgText = new GameObject();
+			TextMesh mesh = dmgText.AddComponent<TextMesh>();
+			mesh.fontSize = 14;
+			mesh.color = Color.red;
+			mesh.text = damage.ToString();
+			dmgText.transform.position = dmgTextLocation;
+			GameObject.Destroy(dmgText, 1f);
 		}
 
 		int resultingMP = owner.current.MP - ability.mpCost;
