@@ -7,7 +7,7 @@ public class CameraRig : MonoBehaviour
 	[SerializeField] Transform _follow;
 	Transform _transform;
 
-	void Awake ()
+    void Awake ()
 	{
 		_transform = transform;
 	}
@@ -16,4 +16,10 @@ public class CameraRig : MonoBehaviour
 	{
 		_transform.position = Vector3.Lerp(_transform.position, _follow.position, speed * Time.deltaTime);
 	}
+
+    public void RotateCamera ()
+    {
+        _transform.Rotate(0, +90, 0);
+    }
+
 }

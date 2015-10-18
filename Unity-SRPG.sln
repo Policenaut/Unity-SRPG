@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity-SRPG.CSharp", "Unity-SRPG.CSharp.csproj", "{F00DDD5A-7097-899E-23BA-FC97FF41DD15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity-SRPG.CSharp.Editor", "Unity-SRPG.CSharp.Editor.csproj", "{3F1AB364-A2CC-F759-42F0-9EFB4529224D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F00DDD5A-7097-899E-23BA-FC97FF41DD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00DDD5A-7097-899E-23BA-FC97FF41DD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00DDD5A-7097-899E-23BA-FC97FF41DD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00DDD5A-7097-899E-23BA-FC97FF41DD15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1AB364-A2CC-F759-42F0-9EFB4529224D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1AB364-A2CC-F759-42F0-9EFB4529224D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1AB364-A2CC-F759-42F0-9EFB4529224D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1AB364-A2CC-F759-42F0-9EFB4529224D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
