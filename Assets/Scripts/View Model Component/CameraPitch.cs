@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraGUIHandler : MonoBehaviour {
+public class CameraPitch : MonoBehaviour {
 
     public void Start()
     {
@@ -18,10 +18,16 @@ public class CameraGUIHandler : MonoBehaviour {
     public void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("e"))
         {
             lerp = true;
-            targetAngle.y += 90;
+            if (currentAngle.x < 35)
+            {
+                targetAngle.x += 10;
+            } else
+            {
+                targetAngle.x -= 10;
+            }
         }
         if (lerp)
         {
