@@ -36,7 +36,7 @@ public class Death : MonoBehaviour
 	#region Event Handlers
 	static void OnStatChanged (object sender, StatChange e)
 	{
-		if (e.type == Stats.HP)
+		if (e.type == StatTypes.HP)
 		{
 			if (e.toValue <= 0)
 				Inflict(sender as Unit);

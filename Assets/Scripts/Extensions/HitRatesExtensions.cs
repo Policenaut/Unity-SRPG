@@ -78,7 +78,7 @@ public static class HitRatesExtensions
 		}
 
 		// Step 3. Retrieve Target's Evade stat - GET BASE EVADE STAT (FROM JOB & EQUIPMENT)
-		int defenderEvade = defender.ModifiedStat( Stats.Evd );
+		int defenderEvade = defender.ModifiedStat( StatTypes.Evd );
 		 
 		// Step 4. Work out Relative Facing - MODIFY EVADE STAT DUE TO ANGLE OF ATTACK
 		Facings f = attacker.AngleOfAttack(defender);
@@ -123,7 +123,7 @@ public static class HitRatesExtensions
 		}
 
 		// Step 3. Retrieve Target's Evade stat - GET BASE EVADE STAT (FROM JOB & EQUIPMENT)
-		int defenderResistance = defender.ModifiedStat( Stats.SRes );
+		int defenderResistance = defender.ModifiedStat( StatTypes.SRes );
 
 		// Step 4. Status Check - MODIFY EVADE DUE TO STATUS BOOSTS AND AILMENTS
 		defenderResistance += ReturnEvent<int>(effect, attacker, defender, boostCheckEvent, 0);

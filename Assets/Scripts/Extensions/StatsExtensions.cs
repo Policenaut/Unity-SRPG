@@ -6,39 +6,39 @@ public static class StatsExtensions
 {
 	public static event EventHandler<InfoEventArgs<int>> statCheckEvent;
 
-	public static int BaseStat (this Unit unit, Stats type)
+	public static int BaseStat (this Unit unit, StatTypes type)
 	{
 		switch (type)
 		{
-		case Stats.HP:
+		case StatTypes.HP:
 			return unit.HP;
-		case Stats.MP:
+		case StatTypes.MP:
 			return unit.MP;
-		case Stats.WAtk:
+		case StatTypes.WAtk:
 			return unit.WAtk;
-		case Stats.WDef:
+		case StatTypes.WDef:
 			return unit.WDef;
-		case Stats.MPow:
+		case StatTypes.MPow:
 			return unit.MPow;
-		case Stats.MRes:
+		case StatTypes.MRes:
 			return unit.MRes;
-		case Stats.Spd:
+		case StatTypes.Spd:
 			return unit.Spd;
-		case Stats.AP:
+		case StatTypes.AP:
 			return unit.AP;
-		case Stats.Mov:
+		case StatTypes.Mov:
 			return unit.Mov;
-		case Stats.Jmp:
+		case StatTypes.Jmp:
 			return unit.Jmp;
-		case Stats.Evd:
+		case StatTypes.Evd:
 			return unit.Evd;
-		case Stats.SRes:
+		case StatTypes.SRes:
 			return unit.SRes;
 		}
 		return 0;
 	}
 	
-	public static int ModifiedStat (this Unit unit, Stats type)
+	public static int ModifiedStat (this Unit unit, StatTypes type)
 	{
 		if (statCheckEvent != null)
 		{

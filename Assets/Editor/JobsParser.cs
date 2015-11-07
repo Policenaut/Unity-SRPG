@@ -64,19 +64,19 @@ public class JobsParser : EditorWindow
 		Job job = ScriptableObject.CreateInstance<Job>();
 
 		job.name = line.Substring(0, 15).Trim();
-		ParseStat(line.Substring(15, 7), job, Stats.MHP);
-		ParseStat(line.Substring(22, 9), job, Stats.MMP);
-		ParseStat(line.Substring(31, 9), job, Stats.WAtk);
-		ParseStat(line.Substring(40, 9), job, Stats.WDef);
-		ParseStat(line.Substring(49, 9), job, Stats.MPow);
-		ParseStat(line.Substring(58, 9), job, Stats.MRes);
-		ParseStat(line.Substring(67, 9), job, Stats.Spd);
+		ParseStat(line.Substring(15, 7), job, StatTypes.MHP);
+		ParseStat(line.Substring(22, 9), job, StatTypes.MMP);
+		ParseStat(line.Substring(31, 9), job, StatTypes.WAtk);
+		ParseStat(line.Substring(40, 9), job, StatTypes.WDef);
+		ParseStat(line.Substring(49, 9), job, StatTypes.MPow);
+		ParseStat(line.Substring(58, 9), job, StatTypes.MRes);
+		ParseStat(line.Substring(67, 9), job, StatTypes.Spd);
 
 		string path = string.Format("Assets/Resources/Jobs/{0}.asset", job.name);
 		AssetDatabase.CreateAsset(job, path);
 	}
 
-	static void ParseStat (string line, Job job, Stats type)
+	static void ParseStat (string line, Job job, StatTypes type)
 	{
 		string[] elements = line.Split('/');
 		job.SetBaseStat( type, Convert.ToInt32( elements[0].Trim() ) );

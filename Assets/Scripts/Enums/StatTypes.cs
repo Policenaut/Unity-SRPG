@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum Stats
+public enum StatTypes
 {
 	Lvl,	// Level
 	HP,		// Hit Points

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.2.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -77,6 +79,7 @@
     <Compile Include="Assets\Scripts\Common\Animation\TransformScaleTweener.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\Tweener.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\Vector3Tweener.cs" />
+    <Compile Include="Assets\Scripts\Common\Notification Center\NotificationCenter.cs" />
     <Compile Include="Assets\Scripts\Common\State Machine\State.cs" />
     <Compile Include="Assets\Scripts\Common\State Machine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Controller\BattleController.cs" />
@@ -103,7 +106,7 @@
     <Compile Include="Assets\Scripts\Enums\Genders.cs" />
     <Compile Include="Assets\Scripts\Enums\Races.cs" />
     <Compile Include="Assets\Scripts\Enums\Resistances.cs" />
-    <Compile Include="Assets\Scripts\Enums\Stats.cs" />
+    <Compile Include="Assets\Scripts\Enums\StatTypes.cs" />
     <Compile Include="Assets\Scripts\EventArgs\Check.cs" />
     <Compile Include="Assets\Scripts\EventArgs\InfoEventArgs.cs" />
     <Compile Include="Assets\Scripts\EventArgs\StatChange.cs" />
@@ -144,6 +147,8 @@
     <Compile Include="Assets\Scripts\View Model Component\UI\SidePanel.cs" />
     <Compile Include="Assets\Scripts\View Model Component\UI\Spacer.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Unit.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Health.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Stats.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Settings\AbilitiesFAQ.txt" />
@@ -159,5 +164,5 @@
     <None Include="Assets\Settings\NuMouJobsFAQ.txt" />
     <None Include="Assets\Settings\VieraJobsFAQ.txt" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

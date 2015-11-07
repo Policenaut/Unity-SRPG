@@ -21,10 +21,10 @@ public class PerformAbilityState : BattleState
 		for (int i = 0; i < targets.Count; ++i)
 		{
 			int damage = ability.CalculateDamage(ability.effects[0], current, targets[i]);
-			int hp = targets[i].GetStat(Stats.HP);
-			int maxHP = targets[i].GetStat(Stats.MHP);
+			int hp = targets[i].GetStat(StatTypes.HP);
+			int maxHP = targets[i].GetStat(StatTypes.MHP);
 			int result = Mathf.Clamp(hp - damage, 0, maxHP);
-			targets[i].SetStat(Stats.HP, result);
+			targets[i].SetStat(StatTypes.HP, result);
 			
 			Vector3 dmgTextLocation = targets[i].transform.position;
 			dmgTextLocation.y += 1;
@@ -46,10 +46,10 @@ public class PerformAbilityState : BattleState
 		}
 
 		int resultingMP = owner.current.MP - ability.mpCost;
-		owner.current.SetStat(Stats.MP, resultingMP);
+		owner.current.SetStat(StatTypes.MP, resultingMP);
 
 		int resultingAP = owner.current.AP - ability.apCost;
-		owner.current.SetStat(Stats.AP, resultingAP);
+		owner.current.SetStat(StatTypes.AP, resultingAP);
 
 		if (HasUnitMoved && owner.current.HP > 0)
 		{ owner.ChangeState<EndFacingState>(); }

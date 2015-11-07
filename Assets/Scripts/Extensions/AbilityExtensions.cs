@@ -57,7 +57,7 @@ public static class AbilityExtensions
 	static int Damage (Ability a, Effect e, Unit owner, Unit target, bool isPrediction)
 	{
 		// Step 1. Get base attack power
-		int baseAttackPower = (a.powerType == Ability.Powers.MPow) ? owner.GetStat(Stats.MPow) : owner.GetStat(Stats.WAtk);
+		int baseAttackPower = (a.powerType == Ability.Powers.MPow) ? owner.GetStat(StatTypes.MPow) : owner.GetStat(StatTypes.WAtk);
 		
 		// Step 1a. Apply the mission item bonus
 		baseAttackPower += baseAttackPower * GetMissionItemBonus(owner) / 100;
@@ -75,7 +75,7 @@ public static class AbilityExtensions
 		baseAttackPower = Mathf.Min(baseAttackPower, 999);
 		
 		// Step 6. Get base defense power
-		int baseDefensePower = (a.powerType == Ability.Powers.MPow) ? target.GetStat(Stats.MRes) : target.GetStat(Stats.WDef);
+		int baseDefensePower = (a.powerType == Ability.Powers.MPow) ? target.GetStat(StatTypes.MRes) : target.GetStat(StatTypes.WDef);
 		
 		// Step 6.a Apply the mission item bonus
 		baseDefensePower += baseDefensePower * GetMissionItemBonus(target) / 100;
