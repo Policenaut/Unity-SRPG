@@ -17,7 +17,7 @@ public class CameraHeading : MonoBehaviour {
 
     public void Update()
     {
-
+        currentAngle = transform.eulerAngles;
         if (Input.GetKeyDown("r"))
         {
             lerp = true;
@@ -26,9 +26,9 @@ public class CameraHeading : MonoBehaviour {
         if (lerp)
         {
             currentAngle = new Vector3(
-                Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
+                currentAngle.x,
                 Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
-                Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
+                currentAngle.z);
 
             transform.eulerAngles = currentAngle;
         }

@@ -10,14 +10,13 @@ public class CameraPitch : MonoBehaviour {
     }
 
     Vector3 targetAngle;
-
     Vector3 currentAngle;
 
     bool lerp;
 
     public void Update()
     {
-
+        currentAngle = transform.eulerAngles;
         if (Input.GetKeyDown("e"))
         {
             lerp = true;
@@ -33,8 +32,8 @@ public class CameraPitch : MonoBehaviour {
         {
             currentAngle = new Vector3(
                 Mathf.LerpAngle(currentAngle.x, targetAngle.x, Time.deltaTime),
-                Mathf.LerpAngle(currentAngle.y, targetAngle.y, Time.deltaTime),
-                Mathf.LerpAngle(currentAngle.z, targetAngle.z, Time.deltaTime));
+                currentAngle.y,
+                currentAngle.z);
 
             transform.eulerAngles = currentAngle;
         }
