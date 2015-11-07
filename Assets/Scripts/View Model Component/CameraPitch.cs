@@ -20,12 +20,12 @@ public class CameraPitch : MonoBehaviour {
         if (Input.GetKeyDown("e"))
         {
             lerp = true;
-            if (currentAngle.x < 35)
+            if (currentAngle.x < 40)
             {
-                targetAngle.x += 10;
+                targetAngle.x = 45;
             } else
             {
-                targetAngle.x -= 10;
+                targetAngle.x = 35;
             }
         }
         if (lerp)
