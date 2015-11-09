@@ -3,21 +3,23 @@ using System.Collections;
 
 public enum StatTypes
 {
-	Lvl,	// Level
+	LVL,	// Level
+	EXP,	// Experience
 	HP,		// Hit Points
 	MHP,	// Max Hit Points
+	AP,     // Action Points
+	MAP,	// Max Action Points
 	MP,		// Magic Points
 	MMP,	// Max Magic Points
-	WAtk,	// Weapon Attack
-	WDef,	// Weapon Defense
-	MPow,	// Magic Power
-	MRes,	// Magic Resistance
-	Spd,	// Speed
-    AP,     // Action Points
-	MAP,	// Max Action Points
-	Mov,	// Move Range
-	Jmp,	// Jump
-	Evd,	// Evade
-	SRes,	// Status Resistance
+	ATK,	// Physical Attack
+	DEF,	// Physical Defense
+	MAT,	// Magic Attack
+	MDF,	// Magic Defence
+	EVD,	// Evade
+	RES,	// Status Resistance
+	SPD,	// Speed
+	MOV,	// Move Range
+	JMP,	// Jump
+	CTR,	// Counter - for turn order
 	Count
 }

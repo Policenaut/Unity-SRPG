@@ -5,22 +5,22 @@ using System.Collections.Generic;
 public class WalkMovement : Movement 
 {
 	#region Protected
-	protected override bool ExpandSearch (Tile tile)
+	protected override bool ExpandSearch (Tile from, Tile to)
 	{
 		// Skip if the distance in height between the two tiles is more than the unit can jump
-		if ((Mathf.Abs(tile.prev.height - tile.height) > jumpHeight))
+		if ((Mathf.Abs(from.height - to.height) > jumpHeight))
 			return false;
 
 		// Skip if the tile is occupied by an enemy
-		if (tile.unit != null && unit.IsAlly(tile.unit) == false)
+		if (to.content != null)
 			return false;
 
-		return base.ExpandSearch(tile);
+		return base.ExpandSearch(from, to);
 	}
 	
 	public override IEnumerator Traverse (Tile tile)
 	{
-		yield return StartCoroutine(base.Traverse(tile));
+		unit.Place(tile);
 
 		// Build a list of way points from the unit's 
 		// starting tile to the destination tile
@@ -38,13 +38,13 @@ public class WalkMovement : Movement
 			Tile to = targets[i];
 
 			Directions dir = from.GetDirection(to);
-			if (unit.Dir != dir)
-				yield return StartCoroutine(Turn(dir));
+			if (unit.dir != dir)
+			{ yield return StartCoroutine(Turn(dir)); }
 
 			if (from.height == to.height)
-				yield return StartCoroutine(Walk(to));
+			{ yield return StartCoroutine(Walk(to)); }
 			else
-				yield return StartCoroutine(Jump(to));
+			{	yield return StartCoroutine(Jump(to)); }
 		}
 
 		yield return null;
@@ -56,19 +56,19 @@ public class WalkMovement : Movement
 	{
 		Tweener tweener = transform.MoveTo(target.center, 0.5f, EasingEquations.Linear);
 		while (tweener != null)
-			yield return null;
+		{ yield return null; }
 	}
 
 	IEnumerator Jump (Tile to)
 	{
 		Tweener tweener = transform.MoveTo(to.center, 0.5f, EasingEquations.Linear);
 
-		Tweener t2 = jumper.MoveToLocal(new Vector3(0, Tile.stepHeight * 2f, 0), tweener.easingControl.duration / 2f, EasingEquations.EaseOutQuad);
-		t2.easingControl.loopCount = 1;
-		t2.easingControl.loopType = EasingControl.LoopType.PingPong;
+		Tweener t2 = jumper.MoveToLocal(new Vector3(0, Tile.stepHeight * 2f, 0), tweener.duration / 2f, EasingEquations.EaseOutQuad);
+		t2.loopCount = 1;
+		t2.loopType = EasingControl.LoopType.PingPong;
 
 		while (tweener != null)
-			yield return null;
+		{ yield return null; }
 	}
 	#endregion
 }

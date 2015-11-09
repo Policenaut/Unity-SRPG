@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
 
 [CustomEditor(typeof(BoardCreator))]
 public class BoardCreatorInspector : Editor 
@@ -15,7 +16,7 @@ public class BoardCreatorInspector : Editor
 	public override void OnInspectorGUI ()
 	{
 		DrawDefaultInspector();
-
+		
 		if (GUILayout.Button("Clear"))
 			current.Clear();
 		if (GUILayout.Button("Grow"))
@@ -30,7 +31,7 @@ public class BoardCreatorInspector : Editor
 			current.Save();
 		if (GUILayout.Button("Load"))
 			current.Load();
-
+		
 		if (GUI.changed)
 			current.UpdateMarker ();
 	}

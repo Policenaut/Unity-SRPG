@@ -6,14 +6,14 @@ public class Stats : MonoBehaviour
 {
 
 	#region Notifications
-	public static string WillChangeNotificaion(StatTypes type)
+	public static string WillChangeNotification(StatTypes type)
 	{
 		if (!_willChangeNotifications.ContainsKey(type))
 		{ _willChangeNotifications.Add(type, string.Format("Stats.{0}WillChange", type.ToString())); }
 		return _willChangeNotifications[type];
 	}
 
-	public static string DidChangeNotificaion(StatTypes type)
+	public static string DidChangeNotification(StatTypes type)
 	{
 		if (!_didChangeNotifications.ContainsKey(type))
 		{ _didChangeNotifications.Add(type, string.Format("Stats.{0}DidCHange", type.ToString())); }
@@ -46,7 +46,7 @@ public class Stats : MonoBehaviour
 		}
 
 		_data[(int)type] = value;
-		//TODO: Post Notificaion
+		this.PostNotification(DidChangeNotification(type), oldValue);
 	}
 	#endregion
 }

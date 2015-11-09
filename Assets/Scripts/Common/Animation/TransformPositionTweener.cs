@@ -3,9 +3,9 @@ using System.Collections;
 
 public class TransformPositionTweener : Vector3Tweener 
 {
-	protected override void OnUpdate (object sender, System.EventArgs e)
+	protected override void OnUpdate ()
 	{
-		base.OnUpdate (sender, e);
-		transform.position = currentValue;
+		base.OnUpdate ();
+		transform.position = currentTweenValue;
 	}
 }

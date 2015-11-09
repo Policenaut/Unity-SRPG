@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.2.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -72,6 +70,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Common\Animation\EasingControl.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\EasingEquations.cs" />
+    <Compile Include="Assets\Scripts\Common\Animation\RectTransformAnchorPositionTweener.cs" />
+    <Compile Include="Assets\Scripts\Common\Animation\RectTransformAnimationExtensions.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\TransformAnimationExtensions.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\TransformLocalEulerTweener.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\TransformLocalPositionTweener.cs" />
@@ -80,28 +80,37 @@
     <Compile Include="Assets\Scripts\Common\Animation\Tweener.cs" />
     <Compile Include="Assets\Scripts\Common\Animation\Vector3Tweener.cs" />
     <Compile Include="Assets\Scripts\Common\Notification Center\NotificationCenter.cs" />
+    <Compile Include="Assets\Scripts\Common\Notification Center\NotificationExtensions.cs" />
     <Compile Include="Assets\Scripts\Common\State Machine\State.cs" />
     <Compile Include="Assets\Scripts\Common\State Machine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\LayoutAnchor.cs" />
+    <Compile Include="Assets\Scripts\Common\UI\Panel.cs" />
+    <Compile Include="Assets\Scripts\Controller\AbilityMenuPanelController.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\AbilityTargetState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\ActionSelectionState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\BaseAbilityMenuState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\BattleState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\CategorySelectionState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\CommandSelectionState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\ConfirmAbilityTargetState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\CutSceneState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\EndFacingState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\ExploreState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\InitBattleState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\MoveSequenceState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\MoveTargetState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\PerformAbilityState.cs" />
+    <Compile Include="Assets\Scripts\Controller\Battle States\SelectUnitState.cs" />
     <Compile Include="Assets\Scripts\Controller\BattleController.cs" />
-    <Compile Include="Assets\Scripts\Controller\Demo.cs" />
+    <Compile Include="Assets\Scripts\Controller\ConversationController.cs" />
+    <Compile Include="Assets\Scripts\Controller\ExperienceManager.cs" />
+    <Compile Include="Assets\Scripts\Controller\GameObjectPoolController.cs" />
     <Compile Include="Assets\Scripts\Controller\InputController.cs" />
-    <Compile Include="Assets\Scripts\Controller\RoundController.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\AbilitySelectionState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\AbilityTargetState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\BattleState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\CategorySelectionState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\CommandSelectionState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\ConfirmAbilityTargetState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\EndFacingState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\ExploreState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\MoveSequenceState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\MoveTargetState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\PerformAbilityState.cs" />
-    <Compile Include="Assets\Scripts\Controller\States\PreTurnState.cs" />
-    <Compile Include="Assets\Scripts\Controller\VictoryController.cs" />
-    <Compile Include="Assets\Scripts\Enums\Alliances.cs" />
+    <Compile Include="Assets\Scripts\Controller\StatPanelController.cs" />
+    <Compile Include="Assets\Scripts\Controller\TurnOrderController.cs" />
     <Compile Include="Assets\Scripts\Enums\Directions.cs" />
     <Compile Include="Assets\Scripts\Enums\Elements.cs" />
+    <Compile Include="Assets\Scripts\Enums\EquipSlots.cs" />
     <Compile Include="Assets\Scripts\Enums\Facings.cs" />
     <Compile Include="Assets\Scripts\Enums\Genders.cs" />
     <Compile Include="Assets\Scripts\Enums\Races.cs" />
@@ -111,44 +120,97 @@
     <Compile Include="Assets\Scripts\EventArgs\InfoEventArgs.cs" />
     <Compile Include="Assets\Scripts\EventArgs\StatChange.cs" />
     <Compile Include="Assets\Scripts\EventArgs\ValueChange.cs" />
-    <Compile Include="Assets\Scripts\Extensions\AbilityExtensions.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\BaseException.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\MatchException.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\Modifier\AddValueModifier.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\Modifier\ClampValueModifier.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\Modifier\Modifier.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\Modifier\MultDeltaModifier.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\Modifier\ValueModifier.cs" />
+    <Compile Include="Assets\Scripts\Exceptions\ValueChangeException.cs" />
     <Compile Include="Assets\Scripts\Extensions\DirectionsExtensions.cs" />
     <Compile Include="Assets\Scripts\Extensions\FacingsExtensions.cs" />
-    <Compile Include="Assets\Scripts\Extensions\HitRatesExtensions.cs" />
-    <Compile Include="Assets\Scripts\Extensions\StatsExtensions.cs" />
-    <Compile Include="Assets\Scripts\Factory\UnitFactory.cs" />
-    <Compile Include="Assets\Scripts\Model\Ability.cs" />
+    <Compile Include="Assets\Scripts\Extensions\GameObjectExtensions.cs" />
     <Compile Include="Assets\Scripts\Model\Contents.cs" />
+    <Compile Include="Assets\Scripts\Model\ConversationData.cs" />
     <Compile Include="Assets\Scripts\Model\Effect.cs" />
-    <Compile Include="Assets\Scripts\Model\Job.cs" />
+    <Compile Include="Assets\Scripts\Model\Info.cs" />
     <Compile Include="Assets\Scripts\Model\LevelData.cs" />
     <Compile Include="Assets\Scripts\Model\Point.cs" />
+    <Compile Include="Assets\Scripts\Model\PoolData.cs" />
     <Compile Include="Assets\Scripts\Model\SkillSet.cs" />
-    <Compile Include="Assets\Scripts\Model\TurnOrder.cs" />
-    <Compile Include="Assets\Scripts\Model\Victory Conditions\AnnihilationCondition.cs" />
-    <Compile Include="Assets\Scripts\Model\Victory Conditions\VictoryCondition.cs" />
+    <Compile Include="Assets\Scripts\Model\SpeakerData.cs" />
+    <Compile Include="Assets\Scripts\Model\Turn.cs" />
     <Compile Include="Assets\Scripts\PreProduction\BoardCreator.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Ability.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\AbilityCatalog.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\AbilityMagicCost.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Area Of Effect\AbilityArea.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Area Of Effect\FullAbilityArea.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Area Of Effect\SpecifyAbilityArea.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Area Of Effect\UnitAbilityArea.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effect Target\AbilityEffectTarget.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effect Target\AbsorbDamageAbilityEffectTarget.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effect Target\DefaultAbilityEffectTarget.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effect Target\KOdAbilityEffectTarget.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effect Target\UndeadAbilityEffectTarget.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effects\BaseAbilityEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effects\DamageAbilityEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effects\HealAbilityEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effects\InflictAbilityEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Effects\ReviveAbilityEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Hit Rate\ATypeHitRate.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Hit Rate\FullTypeHitRate.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Hit Rate\HitRate.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Hit Rate\STypeHitRate.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Power\BaseAbilityPower.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Power\MagicalAbilityPower.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Power\PhysicalAbilityPower.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Power\WeaponAbilityPower.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\AbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\ConeAbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\ConstantAbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\InfiniteAbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\LineAbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Ability\Range\SelfAbilityRange.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\AbilityMenuEntry.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Board.cs" />
     <Compile Include="Assets\Scripts\View Model Component\CameraGUIHandler.cs" />
     <Compile Include="Assets\Scripts\View Model Component\CameraRig.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\Death.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\ConversationPanel.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Features\AddPoisonStatusFeature.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Features\AddStatusFeature.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Features\Feature.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Features\StatModifierFeature.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\HitSuccessIndicator.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Item\Consumable.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Item\Equippable.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Item\Merchandise.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Movement Types\FlyMovement.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Movement Types\Movement.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Movement Types\TeleportMovement.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Movement Types\WalkMovement.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Poolable.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\StatPanel.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Conditions\DurationStatusCondition.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Conditions\StatusCondition.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\BlindStatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\HasteStatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\PoisonStatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\SlowStatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\StatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Effects\StopStatusEffect.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Status\Status.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Tile.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\AbilityMenuEntry.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\AbilityMenuPanel.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\ActionNamePanel.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\AttackPanel.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\ConversationPanel.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\FacingIndicator.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\HitSuccessGauge.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\SidePanel.cs" />
-    <Compile Include="Assets\Scripts\View Model Component\UI\Spacer.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Unit.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\AbilityPoints.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Equipment.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Unit\Health.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Job.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Mana.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Rank.cs" />
     <Compile Include="Assets\Scripts\View Model Component\Unit\Stats.cs" />
+    <Compile Include="Assets\Scripts\View Model Component\Unit\Undead.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Settings\AbilitiesFAQ.txt" />

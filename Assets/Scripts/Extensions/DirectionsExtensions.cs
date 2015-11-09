@@ -14,25 +14,34 @@ public static class DirectionsExtensions
 		return Directions.West;
 	}
 
+	public static Vector3 ToEuler (this Directions d)
+	{
+		return new Vector3(0, (int)d * 90, 0);
+	}
+
 	public static Directions GetDirection (this Point p)
 	{
 		if (p.y > 0)
 			return Directions.North;
-		else if (p.x > 0)
+		if (p.x > 0)
 			return Directions.East;
-		else if (p.y < 0)
+		if (p.y < 0)
 			return Directions.South;
-		else
-			return Directions.West;
+		return Directions.West;
 	}
 
-	public static Directions ToDirection (this Vector3 v)
+	public static Point GetNormal (this Directions dir)
 	{
-		return (Directions)((int)v.y / 90);
-	}
-
-	public static Vector3 ToEuler (this Directions d)
-	{
-		return new Vector3(0, (int)d * 90, 0);
+		switch (dir)
+		{
+		case Directions.North:
+			return new Point(0, 1);
+		case Directions.East:
+			return new Point(1, 0);
+		case Directions.South:
+			return new Point(0, -1);
+		default: // Directions.West:
+			return new Point(-1, 0);
+		}
 	}
 }

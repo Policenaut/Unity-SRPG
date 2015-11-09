@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FlyMovement : Movement 
+public class FlyMovement : Movement
 {
-	public override IEnumerator Traverse (Tile tile)
+	public override IEnumerator Traverse(Tile tile)
 	{
 		// Store the distance between the start tile and target tile
 		float dist = Mathf.Sqrt(Mathf.Pow(tile.pos.x - unit.tile.pos.x, 2) + Mathf.Pow(tile.pos.y - unit.tile.pos.y, 2));
-
-		yield return StartCoroutine(base.Traverse(tile));
+		unit.Place(tile);
 
 		// Fly high enough not to clip through any ground tiles
 		float y = Tile.stepHeight * 10;
