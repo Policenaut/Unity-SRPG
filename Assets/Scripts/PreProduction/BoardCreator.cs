@@ -69,6 +69,13 @@ public class BoardCreator : MonoBehaviour
 		marker.localPosition = t != null ? t.center : new Vector3(pos.x, 0, pos.y);
 	}
 
+	public void Randomize ()
+	{
+		Clear ();
+		for (int i = 0; i < 15; i++)
+		GrowArea ();
+	}
+
 	public void Save ()
 	{
 		string filePath = Application.dataPath + "/Resources/Levels";

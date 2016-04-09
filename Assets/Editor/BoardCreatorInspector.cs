@@ -30,7 +30,8 @@ public class BoardCreatorInspector : Editor
 			current.Save();
 		if (GUILayout.Button("Load"))
 			current.Load();
-
+		if (GUILayout.Button("Randomize"))
+			current.Randomize();
 		if (GUI.changed)
 			current.UpdateMarker ();
 	}
