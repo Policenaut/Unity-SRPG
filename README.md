@@ -1,5 +1,5 @@
 # Unity-SRPG
-![Photo](http://imgur.com/a/RaYbo)
+![Photo](http://i.imgur.com/AAMRCgc.png)
 
 ## Getting Started
 Select the appropriate executable for your operating system in /Screenshots/
